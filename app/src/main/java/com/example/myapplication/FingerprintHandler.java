@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
+import android.media.MediaPlayer;
 import android.os.CancellationSignal;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
 
 
     private Context context;
+    MediaPlayer SONG;
 
 
     // Constructor
@@ -57,6 +59,8 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         this.update("Fingerprint Authentication succeeded.", true);
+        SONG = MediaPlayer.create(context, R.raw.access);
+        SONG.start();
     }
 
 
