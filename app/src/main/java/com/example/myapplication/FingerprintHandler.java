@@ -41,6 +41,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationError(int errMsgId, CharSequence errString) {
         this.update("Fingerprint Authentication error\n" + errString, false);
+
     }
 
 
@@ -53,6 +54,8 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationFailed() {
         this.update("Fingerprint Authentication failed.", false);
+        SONG = MediaPlayer.create(context, R.raw.noaccess);
+        SONG.start();
     }
 
 
